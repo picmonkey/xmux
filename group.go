@@ -94,8 +94,8 @@ func (g *Group) HandleFunc(method, path string, handler http.HandlerFunc) {
 }
 
 func (g *Group) subPath(path string) string {
-	if path[0] != '/' {
-		panic("path must start with a '/'")
+	if len(path) > 0 && path[0] != '/' {
+		panic("path must be empty or start with a '/'")
 	}
 	return g.p + path
 }
